@@ -210,7 +210,7 @@ RUN apk add --no-cache \
         libcap && \
     /venv/bin/python3 -m pip install --no-cache-dir gunicorn==22.0.0 && \
     find / -type d -name '__pycache__' -exec rm -rf {} + && \
-    useradd -r -u 5050 -g root -s /sbin/nologin pgadmin && \
+    useradd -r -u 1000961000 -g root -s /sbin/nologin pgadmin && \
     mkdir -p /run/pgadmin /var/lib/pgadmin && \
     chown pgadmin:root /run/pgadmin /var/lib/pgadmin && \
     chmod g=u /var/lib/pgadmin && \
