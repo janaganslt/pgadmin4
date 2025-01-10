@@ -68,7 +68,10 @@ export default class SQLEditor {
     let isEnabled = (() => {
       if (!_.isUndefined(obj) && !_.isNull(obj)) {
         if (_.indexOf(pgAdmin.unsupported_nodes, obj._type) == -1) {
-          if (obj._type == 'database' && obj.allowConn) {
+          let t = pgBrowser.tree,
+            selected_item = t.selected(),
+            selected_item_type = t.findNodeByDomElement(selected_item).getData()._type;
+          if ( selected_item_type == 'database' && obj._type == 'database' && obj.allowConn) {
             return true;
           } else if (obj._type != 'database') {
             return true;

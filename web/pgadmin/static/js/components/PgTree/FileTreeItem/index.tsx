@@ -93,7 +93,6 @@ export class FileTreeItem extends React.Component<IItemRendererXProps & IItemRen
         data-depth={item.depth}
         onContextMenu={this.handleContextMenu}
         onClick={this.handleClick}
-        onDoubleClick={this.handleDoubleClick}
         onDragStart={this.handleDragStartItem}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
@@ -107,7 +106,7 @@ export class FileTreeItem extends React.Component<IItemRendererXProps & IItemRen
           : null
         }
 
-        <span className='file-label'>
+        <span className='file-label'  onDoubleClick={this.handleDoubleClick}>
           {
             item._metadata?.data?.icon ?
               <i className={cn('file-icon', item._metadata?.data?.icon ? item._metadata.data.icon : fileOrDir)} /> : null
